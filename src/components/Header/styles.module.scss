@@ -1,0 +1,47 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 90px;
+  &__title {
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 30px;
+  }
+  &__nav {
+    display: flex;
+    grid-gap: 35px;
+  }
+  .favourites {
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+    .favourites__count {
+      right: -11px;
+      top: -8px;
+    }
+  }
+  .cart {
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+    .cart__count {
+      right: -9px;
+      top: -7px;
+    }
+  }
+  &__count {
+    background-color: #FFA542;
+    width: 18px;
+    height: 18px;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 15px;
+    font-weight: 500;
+    color: #fff;
+    position: absolute;
+  }
+}
+

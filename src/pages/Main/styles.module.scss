@@ -1,0 +1,9 @@
+.main {
+    margin: 0 225px 0 105px;
+    min-height: calc(100% - 70px);
+    display: flex;
+    flex-direction: column;
+    &__container {
+        flex: 1 0 auto;
+    }
+}

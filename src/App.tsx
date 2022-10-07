@@ -1,56 +1,74 @@
 import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import './App.css';
+import styles from './App.module.css';
+import {Routes, Route, Navigate} from 'react-router-dom'
+import Main from "./pages/Main";
+import Cart from "./pages/Cart";
+import { IProductsGroup } from './store/slices/cart';
+import product1 from './assets/product1.png'
+import product2 from './assets/product2.png'
+import product3 from './assets/product3.png'
+import product4 from './assets/product4.png'
+import product5 from './assets/product5.png'
+import product6 from './assets/product6.png'
+
+const productGroups: IProductsGroup[] = [
+  {
+    name: 'Наушники',
+    items: [
+      {
+        name: 'Apple BYZ S852I',
+        img: require('./assets/product1.png'),
+        price: 2927,
+        oldPrice: 3527,
+        rating: 4.7
+      },
+      {
+        name: 'Apple EarPods',
+        img: require('./assets/product2.png'),
+        price: 2327,
+        rating: 4.5
+      },
+      {
+        name: 'Apple EarPods',
+        img: require('./assets/product3.png'),
+        price: 2327,
+        rating: 4.5
+      }
+    ]
+  },
+  {
+    name: 'Беспроводные наушники',
+    items: [
+      {
+        name: 'Apple AirPods',
+        img: require('./assets/product4.png'),
+        price: 9527,
+        rating: 4.7
+      },
+      {
+        name: 'GERLAX GH-04',
+        img: require('./assets/product5.png'),
+        price: 6527,
+        rating: 4.7
+      },
+      {
+        name: 'BOROFONE BO4',
+        img: require('./assets/product6.png'),
+        price: 7527,
+        rating: 4.7
+      }
+    ]
+  }
+]
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
+    <div className={styles.wrapper}>
+      <Routes>
+        <Route path='/' element={<Main productGroups={productGroups}/>}/>
+        <Route path='/cart' element={<Cart/>}/>
+        <Route path='*' element={<Navigate to={'/'}/>}/>
+      </Routes>
     </div>
   );
 }
