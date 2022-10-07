@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './App.module.css';
+import styles from './App.module.scss';
 import {Routes, Route, Navigate} from 'react-router-dom'
 import Main from "./pages/Main";
 import Cart from "./pages/Cart";
